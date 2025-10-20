@@ -13,3 +13,9 @@ echo "Nombre d'entités en 2017:"
 ./compte_par_type.sh 2017 $1
 echo "Nombre d'entités en 2018:"
 ./compte_par_type.sh 2018 $1
+
+#Exo 2.a partie2 correction
+#TYPE=$1
+#bash compte_par_type.sh 2016 $TYPE
+#bash compte_par_type.sh 2017 $TYPE
+#bash compte_par_type.sh 2018 $TYPE

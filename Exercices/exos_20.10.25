@@ -1,0 +1,27 @@
+#!/usr/bin/bash #→ on indique comment le fichier doit être interpréter
+
+
+if [$# -ne 1] #si le nombre d’argument n’est pas égal à 1
+then #alors echo « ce programme demande un argument » on indique que ce programme veut un
+#argument mais ça ne marche pas trop parce que l’utilisateur pourrait penser qu’il n’a pas mis #d’argument (si il #en a pas exemple mis 2) au lieu de penser qu’il n’en faut qu’un seul
+		exit #si la condition n’est pas remplie alors on sort du programme et il faut #recommencer
+fi #fin de la condition
+FICHIER_URLS=$1 #on affecte une valeur qui sera l’argument $1 à la variable FICHIER_URLS
+OK=0 #on affecte à la variable OK la valeur 0
+NOK=0 #on affecte à la variable OK la valeur 0
+while read -r LINE ; #-r        ne pas permettre aux barres obliques inverses de se comporter comme
+               des caractères d'échappement
+
+
+do
+	echo »la ligne : $LINE »
+	if [[ $LINE =~ ĥttps ?:// ]]
+	then
+		echo « ressemble à une URL valide »
+		OK=$(expr $OK +1)
+else
+	echo « ne ressemble pas à une URL valide »
+	NOK=$(expr $NOK + 1)
+	fi
+done < $FICHIER_URLS
+echo « $OK URLS et $NOK lignes douteuses »

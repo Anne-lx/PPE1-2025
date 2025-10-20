@@ -6,3 +6,23 @@ echo "Nombre de lieux en 2017:"
 cat /media/anne/Disque/Archive/Exercice1/ann/2017/* | grep Location | wc -l
 echo "Nombre de lieux en 2018:"
 cat /media/anne/Disque/Archive/Exercice1/ann/2018/* | grep Location | wc -l
+
+
+
+#!/usr/bin/bash
+#CHEMIN=$1
+#echo "Nombre de lieux en 2016:"
+#cat "$CHEMIN/2016/"*| grep Location | wc -l
+#echo "Nombre de lieux en 2017:"
+#cat "$CHEMIN/2017/"* | grep Location | wc -l
+#echo "Nombre de lieux en 2018:"
+#cat "$CHEMIN/2018/"* | grep Location | wc -l
+
+#!/usr/bin/bash
+
+#echo "Nombre de lieux en 2016:"
+#cat "./2016/"*| grep Location | wc -l
+#echo "Nombre de lieux en 2017:"
+#cat "./2017/"* | grep Location | wc -l
+#echo "Nombre de lieux en 2018:"
+#cat "./2018/"* | grep Location | wc -l

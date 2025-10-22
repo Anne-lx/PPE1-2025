@@ -4,12 +4,12 @@ J'ai entré les commandes demandées et j'ai galéré à retrouver la commande "
 au revoir et à bientôt 
 
 ##Entrée 2: 20/10/25
-#!/usr/bin/bash #→ on indique comment le fichier doit être interpréter
+!/usr/bin/bash #→ on indique comment le fichier doit être interpréter
 
 
 if [$# -ne 1] #si le nombre d’argument n’est pas égal à 1
 then #alors echo « ce programme demande un argument » on indique que ce programme veut un
-#argument mais ça ne marche pas trop parce que l’utilisateur pourrait penser qu’il n’a pas mis #d’argument (si il #en a pas exemple mis 2) au lieu de penser qu’il n’en faut qu’un seul
+argument mais ça ne marche pas trop parce que l’utilisateur pourrait penser qu’il n’a pas mis d’argument (si il #en a pas exemple mis 2) au lieu de penser qu’il n’en faut qu’un seul
 		exit #si la condition n’est pas remplie alors on sort du programme et il faut #recommencer
 fi #fin de la condition
 FICHIER_URLS=$1 #on affecte une valeur qui sera l’argument $1 à la variable FICHIER_URLS

@@ -17,8 +17,8 @@ FICHIER_URLS=$1 #on affecte une valeur qui sera l’argument $1 à la variable F
 OK=0 #on affecte à la variable OK la valeur 0
 NOK=0 #on affecte à la variable OK la valeur 0
 while read -r LINE ; #tant que read peut lire (-r ne pas permettre aux barres obliques inverses de se comporter comme des caractères #d'échappement) des lignes on se s'arrete pas
-do #il va
-	echo »la ligne : $LINE » #afficher la ligne
+do
+	echo »la ligne : $LINE » (#afficher la ligne)
 	if [[ $LINE =~ ^https?:// ]] #si la ligne est une url (d'ailleurs on utilise des regex pour faire ça)
 	then #alors
 		echo « ressemble à une URL valide » #renvoi que ça ressemble à une URL valide
@@ -29,3 +29,8 @@ do #il va
 	fi #fin de la condition
 done < $FICHIER_URLS
 echo « $OK URLS et $NOK lignes douteuses » #dit que OK sont des URL et NOK des lignes douteuses
+
+
+## Entrée 3: 27/10/25
+
+J'ai fait les exos, gros problèmes rencontrés notamment sur l'exo 2, un caractère de retour à la ligne a completement bousillé ma mise en page, impossible de mettre des tabulations, finalement réussi à résoudre le problème mais c'était super long.

@@ -15,10 +15,10 @@ do #il va
 	if [[ $LINE =~ ^https?:// ]] #si la ligne est une url (d'ailleurs on utilise des regex pour faire ça)
 	then #alors
 		echo « ressemble à une URL valide » #renvoi que ça ressemble à une URL valide
-		OK=$(expr $OK +1) #on ajoute 1 à la varibale OK
+		OK=$(expr $OK +1) #on ajoute 1 à la variable OK
 	else #dans le cas où la variable n'est pas une URL
 		echo « ne ressemble pas à une URL valide » #renvoi que ça ne ressemble à une URL valide
-		NOK=$(expr $NOK + 1) #on ajoute 1 à la varibale OK
+		NOK=$(expr $NOK + 1) #on ajoute 1 à la variable NOK
 	fi #fin de la condition
 done < $FICHIER_URLS
 echo « $OK URLS et $NOK lignes douteuses » #dit que OK sont des URL et NOK des lignes douteuses

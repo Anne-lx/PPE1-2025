@@ -21,7 +21,7 @@ else
     echo "entrez un nombre"
 fi
 
-#if [ !  -d $DATADIR
+#if [ !  -d $DATADIR]
 #then
 #	echo « $DATADIR n’est pas un dossier »
 #fi

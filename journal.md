@@ -34,3 +34,7 @@ echo « $OK URLS et $NOK lignes douteuses » #dit que OK sont des URL et NOK d
 ## Entrée 3: 27/10/25
 
 J'ai fait les exos, gros problèmes rencontrés notamment sur l'exo 2, un caractère de retour à la ligne a completement bousillé ma mise en page, impossible de mettre des tabulations, finalement réussi à résoudre le problème mais c'était super long.
+
+## Entrée 4: 11/11/25
+
+Pas réussi à comprendre pourquoi il copié les résultats de la ligne du dessus pour l'URL roboty.magistry, après 1h30 j'ai laissé tomber.

@@ -16,21 +16,29 @@ fi
 
 > "$CHEMIN_TABLEAU"
 
-
+echo "<html><h3>Tableau avec informations sur les URLs</h3><table border="1px"><tr><thead><!--On affiche un tabeau --><tr><th>Numéros de lignes</th><th>URLs</th><th>Réponses https</th><th>Nombre de mots</th><th>Encodage</th></tr></thead><tbody>" >> "$CHEMIN_TABLEAU"
 nbr_lignes=0
 while read -r LINE;
 do
 	if [[ $LINE =~ ^https?:// ]]
 	then
-	 nbr_lignes=$(expr $nbr_lignes + 1) #ATTENTION_mettre_espace_entre_s_+_1
+nbr_lignes=$(expr $nbr_lignes + 1) #ATTENTION_mettre_espace_entre_s_+_1
 
-	 INFOS_CURL=$(curl -i -L "$LINE" )
-	 # echo -e "$INFOS_CURL\t$LINE" >> "$CHEMIN_TABLEAU" #affiche tout dans la lignedoncNON
-	 HTTP_REP=$(echo "$INFOS_CURL" | head -n 1 | tr -d '\r')
-	 MOTS=$(echo "$INFOS_CURL" | wc -w | tr -d '\r')
-	 ENCODAGE=$( echo "$INFOS_CURL" |head -n 10 | grep charset | cut -d "="  -f 2 | tr -d '\r')
-	 echo -e "$nbr_lignes\t$LINE\t$HTTP_REP\t$MOTS\t$ENCODAGE" >> "$CHEMIN_TABLEAU" #mettre_une_tabulation_avec_\t,_comme_une_regex
+INFOS_CURL=$(curl -i -L -o "tmp.txt" "$LINE" )
+	 # echo -e "$INFOS_CURL\t$LINE" >> "$CHEMIN_TABLEAU" #affiche_tout_dans_la_lignedoncNON
+HTTP_REP=$( cat "tmp.txt"| head -n 1 | tr -d '\r')
+MOTS=0
+MOTS=$(cat "tmp.txt" | lynx -nolist -dump -stdin | wc -w | tr -d '\r')
+
+ENCODAGE=$( cat "tmp.txt" | head -n 10 | grep charset | cut -d "="  -f 2 | tr -d '\r')
+echo "<tr><td>$nbr_lignes</td><td>$LINE</td><td>$HTTP_REP</td><td>$MOTS</td><td>$ENCODAGE</td></tr>" >> "$CHEMIN_TABLEAU"
+
+
+
+
+
 
 	fi
 done < "$CHEMIN_FICHIER";
-
+echo "</tbody></table></td></body></html>" >>"$CHEMIN_FICHIER"
+#ne_pas_oublier_de_bien_mettre_fichier.html_dans_la_console_sinon_evidement_çarenvoie_pas_ce_qu'il_faut

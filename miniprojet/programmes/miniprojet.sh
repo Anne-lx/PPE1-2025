@@ -16,7 +16,7 @@ fi
 
 > "$CHEMIN_TABLEAU"
 
-echo "<html><h3>Tableau avec informations sur les URLs</h3><table border="1px"><tr><thead><!--On affiche un tabeau --><tr><th>Numéros de lignes</th><th>URLs</th><th>Réponses https</th><th>Nombre de mots</th><th>Encodage</th></tr></thead><tbody>" >> "$CHEMIN_TABLEAU"
+echo "<html data-theme=\"dark\"><head><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/versions/bulma-no-dark-mode.min.css\"></head><h3 class=\"title is-3 has-text-link-light\">Tableau avec informations sur les URLs</h3><table class=\"table is-primary has-border\" border=\"1px\"><tr><thead><!--On affiche un tabeau --><tr><th>Numéros de lignes</th><th>URLs</th><th>Réponses https</th><th>Nombre de mots</th><th>Encodage</th></tr></thead><tbody>" >> "$CHEMIN_TABLEAU"
 nbr_lignes=0
 while read -r LINE;
 do
@@ -32,8 +32,6 @@ MOTS=$(cat "tmp.txt" | lynx -nolist -dump -stdin | wc -w | tr -d '\r')
 
 ENCODAGE=$( cat "tmp.txt" | head -n 10 | grep charset | cut -d "="  -f 2 | tr -d '\r')
 echo "<tr><td>$nbr_lignes</td><td>$LINE</td><td>$HTTP_REP</td><td>$MOTS</td><td>$ENCODAGE</td></tr>" >> "$CHEMIN_TABLEAU"
-
-
 
 
 
